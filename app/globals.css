@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* basic and common styles */
+:root {
+  --bg-primary: #01090b;
+  --bg-secondary: #1f2b65;
+  --voilet: #ab7ff0;
+  --white: #ffffff;
+  --blue: #79ffff;
+  --black: #000
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background: linear-gradient(to right, var(--bg-primary), var(--bg-secondary), var(--bg-primary)); */
+  background-color: black;
+  width: 100%;
+  color: var(--white);
+  user-select: none;
+}
+
+section {
+  @apply w-full p-4 sm:p-5 md:p-6 lg:p-7 xl:p-8
+}
+
+h1 {
+  @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold capitalize
+}
+
+h2 {
+  @apply text-5xl font-semibold
+}
+
+
+h4 {
+  @apply text-xl font-semibold
+}
+
+p {
+  @apply text-lg text-white/40
+}
+
+
+
+.fullCenter {
+  @apply flex items-center justify-center
+}
+
+.flexRow {
+  @apply flex items-center flex-row
+}
+
+
+/* other styles */
+.herocalc {
+  height: calc(100vh - 110px);
+}
+
+.glass {
+  background: rgba(245, 245, 245, 0.1);
+  backdrop-filter: blur(17.5px);
+  -webkit-backdrop-filter: blur(17.5px);
+}
+
+.imageshadow {
+  filter: drop-shadow(10px 10px 20px var(--voilet));
+}
+
+.boxshad {
+   box-shadow: 10px 10px 20px var(--voilet);
+}
+
+.trans {
+  transition: all 0.5s ease-in-out;
+}
+
+/* button animation */
+.btn:after {
+  content: "";
+  background: var(--voilet);
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+.btn:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  box-shadow: 10px 10px 0 black;
+  border-radius: 50%;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: -30px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  box-shadow: 10px 10px 0 black;
+  border-radius: 50%;
+}
