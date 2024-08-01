@@ -1,6 +1,8 @@
+'use client'
+
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Link, Element } from "react-scroll";
+import { Link } from "react-scroll/modules";
 
 export const SlideTabsExample = ({ navItems }) => {
     return (
@@ -14,6 +16,7 @@ const SlideTabs = ({ navItems }) => {
         width: 0,
         opacity: 0,
     });
+    const [activeIndex, setActiveIndex] = useState(null);
 
     return (
         <ul
@@ -26,39 +29,63 @@ const SlideTabs = ({ navItems }) => {
             className="hidden sm:flex relative mx-auto w-fit rounded-full border-2 border-black bg-black p-1"
         >
             {navItems?.map((item, i) => (
-                <Tab key={i} setPosition={setPosition}>{item?.name}</Tab>
+                <Tab
+                    key={i}
+                    link={item?.link}
+                    setPosition={setPosition}
+                    setActiveIndex={setActiveIndex}
+                    index={i}
+                    isActive={activeIndex === i}
+                >
+                    {item?.name}
+                </Tab>
             ))}
-            {/* <Tab setPosition={setPosition}>Pricing</Tab>
-            <Tab setPosition={setPosition}>Features</Tab>
-            <Tab setPosition={setPosition}>Docs</Tab>
-            <Tab setPosition={setPosition}>Blog</Tab> */}
 
             <Cursor position={position} />
         </ul>
     );
 };
 
-const Tab = ({ children, setPosition }) => {
+const Tab = ({ children, setPosition, setActiveIndex, link, index, isActive }) => {
     const ref = useRef(null);
 
     return (
-        <li
-            ref={ref}
-            onMouseEnter={() => {
-                if (!ref?.current) return;
-
-                const { width } = ref.current.getBoundingClientRect();
-
-                setPosition({
-                    left: ref.current.offsetLeft,
-                    width,
-                    opacity: 1,
-                });
+        <Link
+            activeClass="active"
+            to={`${link}`}
+            spy={true}
+            smooth={true}
+            duration={1000}
+            onSetActive={() => {
+                setActiveIndex(index);
+                if (ref.current) {
+                    const { width } = ref.current.getBoundingClientRect();
+                    setPosition({
+                        left: ref.current.offsetLeft,
+                        width,
+                        opacity: 1,
+                    });
+                }
             }}
-            className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs text-white mix-blend-difference md:px-5 md:py-3 md:text-base"
         >
-            {children}
-        </li>
+            <li
+                ref={ref}
+                onMouseEnter={() => {
+                    if (!ref?.current) return;
+
+                    const { width } = ref.current.getBoundingClientRect();
+
+                    setPosition({
+                        left: ref.current.offsetLeft,
+                        width,
+                        opacity: 1,
+                    });
+                }}
+                className={`relative z-10 block cursor-pointer px-3 py-1.5 text-xs text-white mix-blend-difference md:px-5 md:py-3 md:text-base ${isActive ? 'active' : ''}`}
+            >
+                {children}
+            </li>
+        </Link>
     );
 };
 

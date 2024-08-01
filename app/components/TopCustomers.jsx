@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import Marquee from "./MarQuee";
+import TextAnimation from "./TextAnimation";
 
 const reviews = [
     {
@@ -65,8 +66,8 @@ const ReviewCard = ({
 
 export default function TopCustomers() {
     return (
-        <div className="relative flex h-[600px] w-full flex-col items-center justify-center gap-10 overflow-hidden">
-            <h2 className="text-center">Top Customers</h2>
+        <div className="relative flex h-[600px] w-full flex-col items-center justify-center gap-10 overflow-hidden">            
+            <TextAnimation className="text-center text-3xl lg:text-5xl font-semibold text-white">Top Customers</TextAnimation>
             <Marquee pauseOnHover className="[--duration:20s]">
                 {firstRow.map((review) => (
                     <ReviewCard key={review.username} {...review} />

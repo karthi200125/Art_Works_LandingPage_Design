@@ -5,7 +5,7 @@ import ArtCards from './ArtCards';
 
 const ArtWork = () => {
     return (
-        <section className='min-h-[600px] w-full flex flex-col md:flex-row items-start gap-10'>
+        <section id='work' className='min-h-[600px] w-full flex flex-col md:flex-row items-start gap-10'>
             <div className='w-full md:w-[20%] flex flex-row md:flex-col justify-between md:justify-start items-center md:items-start max-h-max space-y-3'>
                 <h2 className='hidden font-semibold md:flexRow gap-3'>Top
                     <img src={fire.src} alt="" className='w-[60px] h-[60px] object-contain' />

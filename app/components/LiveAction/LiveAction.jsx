@@ -1,12 +1,13 @@
 import React from 'react'
 import { HiArrowLongLeft, HiArrowLongRight } from 'react-icons/hi2'
 import LiveAuctionCards from './LiveAuctionCards'
+import TextAnimation from '../TextAnimation'
 
 const LiveAction = () => {
     return (
-        <section className='min-h-[600px] w-full space-y-[100px]'>
+        <section id='auction' className='min-h-[600px] w-full space-y-[100px]'>
             <div className='flexRow justify-between'>
-                <h2>Live Auction</h2>
+                <TextAnimation className="text-3xl lg:text-5xl font-semibold text-white">Live Auction</TextAnimation>
                 <div className='flex flex-row items-center gap-3'>
                     <div className='w-12 h-12 rounded-full bg-white/10 fullCenter cursor-pointer hover:bg-[var(--voilet)] trans'>
                         <HiArrowLongLeft size={20} />

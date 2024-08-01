@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import sub from '../assets/subscribe.png'
+import TextAnimation from './TextAnimation';
 
 const Subscribe = () => {
     return (
@@ -10,7 +11,7 @@ const Subscribe = () => {
                     <img src={sub.src} alt="" className='w-[200px] h-[200px] object-contain' />
                 </div>
                 <div className="w-full md:w-[45%] h-full flex flex-col gap-5 justify-between">
-                    <h2>Subscribe and get updates every week</h2>
+                    <TextAnimation className={'text-white text-3xl lg:text-5xl font-semibold'}>Subscribe and get updates every week</TextAnimation>
                     <input
                         type="text"
                         className='w-full h-[50px] px-5 bg-black text-white rounded-[10px]'
@@ -18,7 +19,9 @@ const Subscribe = () => {
                     />
                 </div>
                 <div className="w-full md:w-[30%] h-full flex-col-reverse flex md:flex-col gap-5 justify-between ">
-                    <p className='text-white/60'>We have blogs related to NFTs where we share thoughts and routines. Our blogs are updated weekly.</p>
+                    <p className='text-white/60'>
+                        <TextAnimation>We have blogs related to NFTs where we share thoughts and routines. Our blogs are updated weekly.</TextAnimation>
+                    </p>
                     <Button >Subscribe</Button>
                 </div>
             </div>
