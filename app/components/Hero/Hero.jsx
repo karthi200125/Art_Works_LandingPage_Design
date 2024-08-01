@@ -1,9 +1,9 @@
 import { HiArrowLongRight } from "react-icons/hi2";
-import ai from '../../assets/ai1.png'
+import TextAnimation from "../TextAnimation";
 
 const Hero = () => {
     return (
-        <section className='herocalc relative w-full flex flex-row bg-white/10 rounded-[30px] mt-[110px] items-center justify-center overflow-hidden'>
+        <section className='w-[92%] mx-auto md:w-full h-[80vh] sm:herocalc relative flex flex-row bg-white/10 rounded-[30px] mt-[110px] items-center justify-center overflow-hidden'>
 
             {/* center image */}
             <div className='relative z-10 h-full w-[500px] flex justify-between flex-col'>
@@ -15,36 +15,42 @@ const Hero = () => {
             </div>
 
             {/* bottom right video*/}
-            <div className='absolute right-5 bottom-5 h-[70%] w-[300px] bg-black rounded-[20px] overflow-hidden'>
-
+            <div className='hidden md:block absolute right-5 bottom-5 h-[65%] w-[300px] bg-black rounded-[20px] overflow-hidden'>
+                <video
+                    className="object-cover absolute top-0 left-0 w-full h-full"
+                    src={'https://res.cloudinary.com/duextvtta/video/upload/v1722506446/ai_vikko4.mp4'}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                />
             </div>
 
             {/* bottom left*/}
-            <div className='absolute text-white p-5 left-5 bottom-5 max-h-max space-y-5 w-[300px] bg-black rounded-[20px] overflow-hidden flex flex-col justify-between'>
-                <h4>All the amazing art </h4>
-                <p className="text-white/20 leading-none">Lorem ipsum dolor sit  Lorem ipsum Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, explicabo?</p>
+            <div className='hidden md:flex absolute text-white p-5 left-5 bottom-5 max-h-max space-y-5 w-[300px] bg-black rounded-[20px] overflow-hidden flex-col justify-between'>
+                <h4>
+                    <TextAnimation className='text-white'>All the amazing art</TextAnimation>
+                </h4>
+                <p className="text-white/20 leading-none">
+                    <TextAnimation>Lorem ipsum dolor sit  Lorem ipsum Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, explicabo?</TextAnimation>
+                </p>
                 <span className="h-[1px] bg-white w-full flex flex-row items-center justify-end"></span>
             </div>
 
             {/* top left main text */}
-            <div className='absolute left-5 top-5'>
-                <h1 className='text-[200px] text-white/10' style={{ lineHeight: "0.8" }}>FUTURE </h1>
-                <h1 className='text-[200px] text-white/10' style={{ lineHeight: "0.8" }}>ARTS</h1>
+            <div className='absolute left-5 top-5 flex items-start flex-col'>
+                <TextAnimation className='text-[80px] font-bold leading-[0.9] md:text-[200px] text-white/10'>FUTURE</TextAnimation>
+                <TextAnimation className='text-[80px] font-bold leading-[0.9] md:text-[200px] text-white/10'>ARTS</TextAnimation>
             </div>
 
             {/* top right content*/}
-            <div className='absolute right-5 top-5 max-h-max w-[300px] bg-black rounded-[20px] overflow-hidden flex flex-col gap-5 p-5'>
+            <div className='hidden md:flex absolute right-5 top-5 max-h-max w-[300px] bg-black rounded-[20px] overflow-hidden flex-col gap-5 p-5'>
                 <p className='text-center text-white/30'>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
                 <div className='w-full h-[40px] rounded-[10px] bg-white/10 flex flex-row items-center justify-between px-3 text-sm'>
                     Navigate
                     <HiArrowLongRight size={20} />
                 </div>
             </div>
-
-            {/* bottom left */}
-            {/* <div>
-                bottom left
-            </div> */}
 
         </section>
     )

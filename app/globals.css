@@ -36,7 +36,7 @@ h1 {
 }
 
 h2 {
-  @apply text-5xl font-semibold
+  @apply text-3xl lg:text-5xl font-semibold
 }
 
 
@@ -64,7 +64,7 @@ p {
   height: calc(100vh - 110px);
 }
 
-.glass {
+.glassbackground {
   background: rgba(245, 245, 245, 0.1);
   backdrop-filter: blur(17.5px);
   -webkit-backdrop-filter: blur(17.5px);
@@ -75,7 +75,7 @@ p {
 }
 
 .boxshad {
-   box-shadow: 10px 10px 20px var(--voilet);
+  box-shadow: 10px 10px 20px var(--voilet);
 }
 
 .trans {
@@ -124,4 +124,34 @@ p {
   background-color: transparent;
   box-shadow: 10px 10px 0 black;
   border-radius: 50%;
+}
+
+/* text aniamtion css */
+.TAdescription {
+  display: flex;
+  /* justify-content: center; */
+}
+
+.TAdescription .TAbody {
+  display: flex;
+  gap: 50px;
+  position: relative;
+}
+
+.TAdescription .TAbody .TAp {
+  margin: 0;
+}
+
+.TAdescription .TAbody .TAp:nth-of-type(1) {
+  gap: 8px;  
+}
+
+.TAdescription .TAbody .TAp:nth-of-type(1) span {
+  margin-right: 3px;
+}
+
+.TAdescription .TAbody .TAp:nth-of-type(1) .TAmask {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
 }
